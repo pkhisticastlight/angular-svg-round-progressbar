@@ -10,13 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var DEGREE_IN_RADIANS = Math.PI / 180;
-var BASE = document.head.querySelector('base');
-var HAS_PERF = window.performance &&
+var HAS_DOCUMENT = typeof document !== 'undefined';
+var BASE = HAS_DOCUMENT && document.head.querySelector('base');
+var HAS_PERF = typeof window !== 'undefined' &&
+    window.performance &&
     window.performance.now &&
     typeof window.performance.now() === 'number';
 var RoundProgressService = (function () {
     function RoundProgressService() {
-        this.supportsSvg = !!(document.createElementNS &&
+        this.supportsSvg = !!(HAS_DOCUMENT &&
+            document.createElementNS &&
             document.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect);
     }
     /**

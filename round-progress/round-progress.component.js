@@ -13,12 +13,12 @@ var round_progress_service_1 = require('./round-progress.service');
 var round_progress_config_1 = require('./round-progress.config');
 var round_progress_ease_1 = require('./round-progress.ease');
 var RoundProgressComponent = (function () {
-    function RoundProgressComponent(_service, _easingFunctions, _defaults, _ngZone, _element) {
+    function RoundProgressComponent(_service, _easingFunctions, _defaults, _ngZone, _renderer) {
         this._service = _service;
         this._easingFunctions = _easingFunctions;
         this._defaults = _defaults;
         this._ngZone = _ngZone;
-        this._element = _element;
+        this._renderer = _renderer;
         this._lastAnimationId = 0;
         this.radius = this._defaults.get('radius');
         this.animation = this._defaults.get('animation');
@@ -70,10 +70,9 @@ var RoundProgressComponent = (function () {
     };
     /** Sets the path dimensions. */
     RoundProgressComponent.prototype._setPath = function (value) {
-        if (!this._path) {
-            this._path = this._element.nativeElement.querySelector('path');
+        if (this._path) {
+            this._renderer.setElementAttribute(this._path.nativeElement, 'd', this._service.getArc(value, this.max, this.radius - this.stroke / 2, this.radius, this.semicircle));
         }
-        this._path.setAttribute('d', this._service.getArc(value, this.max, this.radius - this.stroke / 2, this.radius, this.semicircle));
     };
     /** Clamps a value between the maximum and 0. */
     RoundProgressComponent.prototype._clamp = function (value) {
@@ -138,6 +137,10 @@ var RoundProgressComponent = (function () {
         configurable: true
     });
     __decorate([
+        core_1.ViewChild('path'), 
+        __metadata('design:type', Object)
+    ], RoundProgressComponent.prototype, "_path", void 0);
+    __decorate([
         core_1.Input(), 
         __metadata('design:type', Number)
     ], RoundProgressComponent.prototype, "current", void 0);
@@ -196,9 +199,9 @@ var RoundProgressComponent = (function () {
     RoundProgressComponent = __decorate([
         core_1.Component({
             selector: 'round-progress',
-            template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"_service.resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"_service.resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
+            template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"_service.resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        #path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"_service.resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
             host: {
-                role: 'progressbar',
+                'role': 'progressbar',
                 '[attr.aria-valuemin]': 'current',
                 '[attr.aria-valuemax]': 'max',
                 '[style.width]': "responsive ? '' : _diameter + 'px'",
@@ -212,7 +215,7 @@ var RoundProgressComponent = (function () {
                 ":host.responsive > svg {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n    }"
             ]
         }), 
-        __metadata('design:paramtypes', [round_progress_service_1.RoundProgressService, round_progress_ease_1.RoundProgressEase, round_progress_config_1.RoundProgressConfig, core_1.NgZone, core_1.ElementRef])
+        __metadata('design:paramtypes', [round_progress_service_1.RoundProgressService, round_progress_ease_1.RoundProgressEase, round_progress_config_1.RoundProgressConfig, core_1.NgZone, core_1.Renderer])
     ], RoundProgressComponent);
     return RoundProgressComponent;
 }());

@@ -1,4 +1,4 @@
-import { OnChanges, NgZone, ElementRef, EventEmitter } from '@angular/core';
+import { OnChanges, NgZone, EventEmitter, Renderer } from '@angular/core';
 import { RoundProgressService } from './round-progress.service';
 import { RoundProgressConfig } from './round-progress.config';
 import { RoundProgressEase } from './round-progress.ease';
@@ -7,10 +7,10 @@ export declare class RoundProgressComponent implements OnChanges {
     private _easingFunctions;
     private _defaults;
     private _ngZone;
-    private _element;
+    private _renderer;
     private _path;
     private _lastAnimationId;
-    constructor(_service: RoundProgressService, _easingFunctions: RoundProgressEase, _defaults: RoundProgressConfig, _ngZone: NgZone, _element: ElementRef);
+    constructor(_service: RoundProgressService, _easingFunctions: RoundProgressEase, _defaults: RoundProgressConfig, _ngZone: NgZone, _renderer: Renderer);
     /** Animates a change in the current value. */
     private _animateChange(from, to);
     /** Sets the path dimensions. */
