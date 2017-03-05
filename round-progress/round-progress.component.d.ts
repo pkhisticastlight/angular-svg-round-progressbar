@@ -8,7 +8,6 @@ export declare class RoundProgressComponent implements OnChanges {
     private _defaults;
     private _ngZone;
     private _renderer;
-    private _path;
     private _lastAnimationId;
     constructor(_service: RoundProgressService, _easingFunctions: RoundProgressEase, _defaults: RoundProgressConfig, _ngZone: NgZone, _renderer: Renderer);
     /** Animates a change in the current value. */
@@ -29,6 +28,7 @@ export declare class RoundProgressComponent implements OnChanges {
     readonly _viewBox: string;
     /** Bottom padding for the wrapper element. */
     readonly _paddingBottom: string;
+    _path: any;
     current: number;
     max: number;
     radius: number;

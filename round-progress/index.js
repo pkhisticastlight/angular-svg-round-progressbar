@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var round_progress_component_1 = require('./round-progress.component');
@@ -30,13 +33,9 @@ var RoundProgressModule = (function () {
 }());
 exports.RoundProgressModule = RoundProgressModule;
 ;
-var round_progress_component_2 = require('./round-progress.component');
-exports.RoundProgressComponent = round_progress_component_2.RoundProgressComponent;
-var round_progress_service_2 = require('./round-progress.service');
-exports.RoundProgressService = round_progress_service_2.RoundProgressService;
-var round_progress_ease_2 = require('./round-progress.ease');
-exports.RoundProgressEase = round_progress_ease_2.RoundProgressEase;
-var round_progress_config_2 = require('./round-progress.config');
-exports.RoundProgressConfig = round_progress_config_2.RoundProgressConfig;
+__export(require('./round-progress.component'));
+__export(require('./round-progress.service'));
+__export(require('./round-progress.ease'));
+__export(require('./round-progress.config'));
 
-//# sourceMappingURL=round-progress.js.map
+//# sourceMappingURL=index.js.map
