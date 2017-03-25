@@ -28,5 +28,4 @@ var DemoModule = (function () {
 }());
 exports.DemoModule = DemoModule;
 ;
-
 //# sourceMappingURL=demo.module.js.map

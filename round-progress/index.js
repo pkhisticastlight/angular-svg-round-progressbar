@@ -37,5 +37,4 @@ __export(require('./round-progress.component'));
 __export(require('./round-progress.service'));
 __export(require('./round-progress.ease'));
 __export(require('./round-progress.config'));
-
 //# sourceMappingURL=index.js.map

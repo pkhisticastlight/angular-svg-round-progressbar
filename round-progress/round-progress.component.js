@@ -90,6 +90,10 @@ var RoundProgressComponent = (function () {
             return "scale(-1, 1) translate(-" + diameter + " 0)";
         }
     };
+    /** Resolves a color through the service. */
+    RoundProgressComponent.prototype.resolveColor = function (color) {
+        return this._service.resolveColor(color);
+    };
     /** Change detection callback. */
     RoundProgressComponent.prototype.ngOnChanges = function (changes) {
         if (changes.current) {
@@ -199,7 +203,7 @@ var RoundProgressComponent = (function () {
     RoundProgressComponent = __decorate([
         core_1.Component({
             selector: 'round-progress',
-            template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"_service.resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        #path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"_service.resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
+            template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        #path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
             host: {
                 'role': 'progressbar',
                 '[attr.aria-valuemin]': 'current',
@@ -220,5 +224,4 @@ var RoundProgressComponent = (function () {
     return RoundProgressComponent;
 }());
 exports.RoundProgressComponent = RoundProgressComponent;
-
 //# sourceMappingURL=round-progress.component.js.map

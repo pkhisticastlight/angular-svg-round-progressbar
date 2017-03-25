@@ -18,6 +18,8 @@ export declare class RoundProgressComponent implements OnChanges {
     private _clamp(value);
     /** Determines the SVG transforms for the <path> node. */
     getPathTransform(): string;
+    /** Resolves a color through the service. */
+    resolveColor(color: string): string;
     /** Change detection callback. */
     ngOnChanges(changes: any): void;
     /** Diameter of the circle. */

@@ -40,5 +40,4 @@ var RoundProgressConfig = (function () {
     return RoundProgressConfig;
 }());
 exports.RoundProgressConfig = RoundProgressConfig;
-
 //# sourceMappingURL=round-progress.config.js.map

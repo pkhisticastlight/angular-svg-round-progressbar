@@ -67,5 +67,4 @@ var DemoComponent = (function () {
 }());
 exports.DemoComponent = DemoComponent;
 ;
-
 //# sourceMappingURL=demo.component.js.map
