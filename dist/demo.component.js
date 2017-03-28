@@ -8,8 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var round_progress_1 = require('round-progress');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var round_progress_1 = require("round-progress");
 var DemoComponent = (function () {
     function DemoComponent(_ease) {
         this._ease = _ease;
@@ -55,16 +56,16 @@ var DemoComponent = (function () {
             'font-size': this.radius / 3.5 + 'px'
         };
     };
-    DemoComponent = __decorate([
-        core_1.Component({
-            selector: 'demo',
-            templateUrl: './demo.html',
-            encapsulation: core_1.ViewEncapsulation.None
-        }), 
-        __metadata('design:paramtypes', [round_progress_1.RoundProgressEase])
-    ], DemoComponent);
     return DemoComponent;
 }());
+DemoComponent = __decorate([
+    core_1.Component({
+        selector: 'demo',
+        templateUrl: './demo.html',
+        encapsulation: core_1.ViewEncapsulation.None
+    }),
+    __metadata("design:paramtypes", [round_progress_1.RoundProgressEase])
+], DemoComponent);
 exports.DemoComponent = DemoComponent;
 ;
 //# sourceMappingURL=demo.component.js.map

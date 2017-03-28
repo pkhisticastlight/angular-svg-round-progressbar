@@ -8,14 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var round_progress_service_1 = require('./round-progress.service');
-var round_progress_config_1 = require('./round-progress.config');
-var round_progress_ease_1 = require('./round-progress.ease');
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var round_progress_service_1 = require("./round-progress.service");
+var round_progress_config_1 = require("./round-progress.config");
+var round_progress_ease_1 = require("./round-progress.ease");
 var RoundProgressComponent = (function () {
-    function RoundProgressComponent(_service, _easingFunctions, _defaults, _ngZone, _renderer) {
+    function RoundProgressComponent(_service, _easing, _defaults, _ngZone, _renderer) {
         this._service = _service;
-        this._easingFunctions = _easingFunctions;
+        this._easing = _easing;
         this._defaults = _defaults;
         this._ngZone = _ngZone;
         this._renderer = _renderer;
@@ -44,7 +45,6 @@ var RoundProgressComponent = (function () {
         var self = this;
         var changeInValue = to - from;
         var duration = self.duration;
-        var ease = self._easingFunctions[self.animation];
         // Avoid firing change detection for each of the animation frames.
         self._ngZone.runOutsideAngular(function () {
             var start = function () {
@@ -52,7 +52,7 @@ var RoundProgressComponent = (function () {
                 var id = ++self._lastAnimationId;
                 requestAnimationFrame(function animation() {
                     var currentTime = Math.min(self._service.getTimestamp() - startTime, duration);
-                    var value = ease(currentTime, from, changeInValue, duration);
+                    var value = self._easing[self.animation](currentTime, from, changeInValue, duration);
                     self._setPath(value);
                     self.onRender.emit(value);
                     if (id === self._lastAnimationId && currentTime < duration) {
@@ -140,88 +140,92 @@ var RoundProgressComponent = (function () {
         enumerable: true,
         configurable: true
     });
-    __decorate([
-        core_1.ViewChild('path'), 
-        __metadata('design:type', Object)
-    ], RoundProgressComponent.prototype, "_path", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "current", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "max", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "radius", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], RoundProgressComponent.prototype, "animation", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "animationDelay", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "duration", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Number)
-    ], RoundProgressComponent.prototype, "stroke", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], RoundProgressComponent.prototype, "color", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', String)
-    ], RoundProgressComponent.prototype, "background", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], RoundProgressComponent.prototype, "responsive", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], RoundProgressComponent.prototype, "clockwise", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], RoundProgressComponent.prototype, "semicircle", void 0);
-    __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Boolean)
-    ], RoundProgressComponent.prototype, "rounded", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], RoundProgressComponent.prototype, "onRender", void 0);
-    RoundProgressComponent = __decorate([
-        core_1.Component({
-            selector: 'round-progress',
-            template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        #path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
-            host: {
-                'role': 'progressbar',
-                '[attr.aria-valuemin]': 'current',
-                '[attr.aria-valuemax]': 'max',
-                '[style.width]': "responsive ? '' : _diameter + 'px'",
-                '[style.height]': '_elementHeight',
-                '[style.padding-bottom]': '_paddingBottom',
-                '[class.responsive]': 'responsive'
-            },
-            styles: [
-                ":host {\n      display: block;\n      position: relative;\n      overflow: hidden;\n    }",
-                ":host.responsive {\n      width: 100%;\n      padding-bottom: 100%;\n    }",
-                ":host.responsive > svg {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n    }"
-            ]
-        }), 
-        __metadata('design:paramtypes', [round_progress_service_1.RoundProgressService, round_progress_ease_1.RoundProgressEase, round_progress_config_1.RoundProgressConfig, core_1.NgZone, core_1.Renderer])
-    ], RoundProgressComponent);
     return RoundProgressComponent;
 }());
+__decorate([
+    core_1.ViewChild('path'),
+    __metadata("design:type", Object)
+], RoundProgressComponent.prototype, "_path", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "current", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "max", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "radius", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], RoundProgressComponent.prototype, "animation", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "animationDelay", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "duration", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], RoundProgressComponent.prototype, "stroke", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], RoundProgressComponent.prototype, "color", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", String)
+], RoundProgressComponent.prototype, "background", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], RoundProgressComponent.prototype, "responsive", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], RoundProgressComponent.prototype, "clockwise", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], RoundProgressComponent.prototype, "semicircle", void 0);
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Boolean)
+], RoundProgressComponent.prototype, "rounded", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", core_1.EventEmitter)
+], RoundProgressComponent.prototype, "onRender", void 0);
+RoundProgressComponent = __decorate([
+    core_1.Component({
+        selector: 'round-progress',
+        template: "\n    <svg xmlns=\"http://www.w3.org/2000/svg\" [attr.viewBox]=\"_viewBox\">\n      <circle\n        fill=\"none\"\n        [attr.cx]=\"radius\"\n        [attr.cy]=\"radius\"\n        [attr.r]=\"radius - stroke / 2\"\n        [style.stroke]=\"resolveColor(background)\"\n        [style.stroke-width]=\"stroke\"/>\n\n      <path\n        #path\n        fill=\"none\"\n        [style.stroke-width]=\"stroke\"\n        [style.stroke]=\"resolveColor(color)\"\n        [style.stroke-linecap]=\"rounded ? 'round' : ''\"\n        [attr.transform]=\"getPathTransform()\"/>\n    </svg>\n  ",
+        host: {
+            'role': 'progressbar',
+            '[attr.aria-valuemin]': 'current',
+            '[attr.aria-valuemax]': 'max',
+            '[style.width]': "responsive ? '' : _diameter + 'px'",
+            '[style.height]': '_elementHeight',
+            '[style.padding-bottom]': '_paddingBottom',
+            '[class.responsive]': 'responsive'
+        },
+        styles: [
+            ":host {\n      display: block;\n      position: relative;\n      overflow: hidden;\n    }",
+            ":host.responsive {\n      width: 100%;\n      padding-bottom: 100%;\n    }",
+            ":host.responsive > svg {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n    }"
+        ]
+    }),
+    __metadata("design:paramtypes", [round_progress_service_1.RoundProgressService,
+        round_progress_ease_1.RoundProgressEase,
+        round_progress_config_1.RoundProgressConfig,
+        core_1.NgZone,
+        core_1.Renderer])
+], RoundProgressComponent);
 exports.RoundProgressComponent = RoundProgressComponent;
 //# sourceMappingURL=round-progress.component.js.map
