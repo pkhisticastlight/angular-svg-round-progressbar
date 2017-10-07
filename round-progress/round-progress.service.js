@@ -56,7 +56,7 @@ var RoundProgressService = (function () {
         if (isSemicircle === void 0) { isSemicircle = false; }
         var value = Math.max(0, Math.min(current || 0, total));
         var maxAngle = isSemicircle ? 180 : 359.9999;
-        var percentage = (value / total) * maxAngle;
+        var percentage = total === 0 ? maxAngle : (value / total) * maxAngle;
         var start = this._polarToCartesian(elementRadius, pathRadius, percentage);
         var end = this._polarToCartesian(elementRadius, pathRadius, 0);
         var arcSweep = (percentage <= 180 ? 0 : 1);
