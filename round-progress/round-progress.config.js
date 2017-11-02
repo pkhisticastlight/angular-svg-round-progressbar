@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var RoundProgressConfig = (function () {
+var RoundProgressConfig = /** @class */ (function () {
     function RoundProgressConfig() {
         this._options = {
             radius: 125,
@@ -31,10 +31,10 @@ var RoundProgressConfig = (function () {
     RoundProgressConfig.prototype.get = function (key) {
         return this._options[key];
     };
+    RoundProgressConfig = __decorate([
+        core_1.Injectable()
+    ], RoundProgressConfig);
     return RoundProgressConfig;
 }());
-RoundProgressConfig = __decorate([
-    core_1.Injectable()
-], RoundProgressConfig);
 exports.RoundProgressConfig = RoundProgressConfig;
 //# sourceMappingURL=round-progress.config.js.map

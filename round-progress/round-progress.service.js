@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var DEGREE_IN_RADIANS = Math.PI / 180;
-var RoundProgressService = (function () {
+var RoundProgressService = /** @class */ (function () {
     function RoundProgressService(document) {
         this.supportsSvg = !!(document &&
             document.createElementNS &&
@@ -75,13 +75,13 @@ var RoundProgressService = (function () {
         var y = elementRadius + (pathRadius * Math.sin(angleInRadians));
         return x + ' ' + y;
     };
+    RoundProgressService = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Optional()), __param(0, core_1.Inject(platform_browser_1.DOCUMENT)),
+        __metadata("design:paramtypes", [Object])
+    ], RoundProgressService);
     return RoundProgressService;
 }());
-RoundProgressService = __decorate([
-    core_1.Injectable(),
-    __param(0, core_1.Optional()), __param(0, core_1.Inject(platform_browser_1.DOCUMENT)),
-    __metadata("design:paramtypes", [Object])
-], RoundProgressService);
 exports.RoundProgressService = RoundProgressService;
 ;
 //# sourceMappingURL=round-progress.service.js.map

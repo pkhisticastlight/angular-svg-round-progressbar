@@ -11,18 +11,18 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var demo_component_1 = require("./demo.component");
 var round_progress_1 = require("round-progress");
-var DemoModule = (function () {
+var DemoModule = /** @class */ (function () {
     function DemoModule() {
     }
+    DemoModule = __decorate([
+        core_1.NgModule({
+            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, round_progress_1.RoundProgressModule],
+            declarations: [demo_component_1.DemoComponent],
+            bootstrap: [demo_component_1.DemoComponent]
+        })
+    ], DemoModule);
     return DemoModule;
 }());
-DemoModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, round_progress_1.RoundProgressModule],
-        declarations: [demo_component_1.DemoComponent],
-        bootstrap: [demo_component_1.DemoComponent]
-    })
-], DemoModule);
 exports.DemoModule = DemoModule;
 ;
 //# sourceMappingURL=demo.module.js.map

@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var RoundProgressEase = (function () {
+var RoundProgressEase = /** @class */ (function () {
     function RoundProgressEase() {
     }
     // t: current time (or position) of the neonate. This can be seconds or frames, steps,
@@ -235,11 +235,11 @@ var RoundProgressEase = (function () {
         return this.easeOutBounce(t * 2 - d, 0, c, d) * 0.5 + c * 0.5 + b;
     };
     ;
+    RoundProgressEase = __decorate([
+        core_1.Injectable()
+    ], RoundProgressEase);
     return RoundProgressEase;
 }());
-RoundProgressEase = __decorate([
-    core_1.Injectable()
-], RoundProgressEase);
 exports.RoundProgressEase = RoundProgressEase;
 /**
  * TERMS OF USE - EASING EQUATIONS
