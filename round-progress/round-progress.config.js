@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var RoundProgressConfig = /** @class */ (function () {
+var RoundProgressConfig = (function () {
     function RoundProgressConfig() {
         this._options = {
             radius: 125,

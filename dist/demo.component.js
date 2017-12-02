@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var round_progress_1 = require("round-progress");
-var DemoComponent = /** @class */ (function () {
+var DemoComponent = (function () {
     function DemoComponent(_ease) {
         this._ease = _ease;
         this.current = 27;

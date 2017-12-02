@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var round_progress_service_1 = require("./round-progress.service");
 var round_progress_config_1 = require("./round-progress.config");
 var round_progress_ease_1 = require("./round-progress.ease");
-var RoundProgressComponent = /** @class */ (function () {
+var RoundProgressComponent = (function () {
     function RoundProgressComponent(_service, _easing, _defaults, _ngZone, _renderer) {
         this._service = _service;
         this._easing = _easing;

@@ -11,7 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var demo_component_1 = require("./demo.component");
 var round_progress_1 = require("round-progress");
-var DemoModule = /** @class */ (function () {
+var DemoModule = (function () {
     function DemoModule() {
     }
     DemoModule = __decorate([

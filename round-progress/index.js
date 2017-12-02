@@ -15,7 +15,7 @@ var round_progress_component_1 = require("./round-progress.component");
 var round_progress_service_1 = require("./round-progress.service");
 var round_progress_ease_1 = require("./round-progress.ease");
 var round_progress_config_1 = require("./round-progress.config");
-var RoundProgressModule = /** @class */ (function () {
+var RoundProgressModule = (function () {
     function RoundProgressModule() {
     }
     RoundProgressModule = __decorate([
