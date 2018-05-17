@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var BoundNodeCallbackObservable_1 = require("./BoundNodeCallbackObservable");
-exports.bindNodeCallback = BoundNodeCallbackObservable_1.BoundNodeCallbackObservable.create;
+__export(require("rxjs-compat/observable/bindNodeCallback"));
 //# sourceMappingURL=bindNodeCallback.js.map

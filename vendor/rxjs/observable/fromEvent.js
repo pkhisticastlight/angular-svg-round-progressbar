@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var FromEventObservable_1 = require("./FromEventObservable");
-exports.fromEvent = FromEventObservable_1.FromEventObservable.create;
+__export(require("rxjs-compat/observable/fromEvent"));
 //# sourceMappingURL=fromEvent.js.map

@@ -1,4 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isArrayLike = (function (x) { return x && typeof x.length === 'number'; });
+__export(require("rxjs-compat/util/isArrayLike"));
 //# sourceMappingURL=isArrayLike.js.map

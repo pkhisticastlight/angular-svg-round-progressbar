@@ -8,12 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var round_progress_service_1 = require("./round-progress.service");
 var round_progress_config_1 = require("./round-progress.config");
 var round_progress_ease_1 = require("./round-progress.ease");
-var RoundProgressComponent = (function () {
+var RoundProgressComponent = /** @class */ (function () {
     function RoundProgressComponent(_service, _easing, _defaults, _ngZone, _renderer) {
         this._service = _service;
         this._easing = _easing;
@@ -21,18 +24,19 @@ var RoundProgressComponent = (function () {
         this._ngZone = _ngZone;
         this._renderer = _renderer;
         this._lastAnimationId = 0;
-        this.radius = this._defaults.get('radius');
-        this.animation = this._defaults.get('animation');
-        this.animationDelay = this._defaults.get('animationDelay');
-        this.duration = this._defaults.get('duration');
-        this.stroke = this._defaults.get('stroke');
-        this.color = this._defaults.get('color');
-        this.background = this._defaults.get('background');
-        this.responsive = this._defaults.get('responsive');
-        this.clockwise = this._defaults.get('clockwise');
-        this.semicircle = this._defaults.get('semicircle');
-        this.rounded = this._defaults.get('rounded');
+        this.radius = this._defaults.radius;
+        this.animation = this._defaults.animation;
+        this.animationDelay = this._defaults.animationDelay;
+        this.duration = this._defaults.duration;
+        this.stroke = this._defaults.stroke;
+        this.color = this._defaults.color;
+        this.background = this._defaults.background;
+        this.responsive = this._defaults.responsive;
+        this.clockwise = this._defaults.clockwise;
+        this.semicircle = this._defaults.semicircle;
+        this.rounded = this._defaults.rounded;
         this.onRender = new core_1.EventEmitter();
+        console.log(_defaults);
     }
     /** Animates a change in the current value. */
     RoundProgressComponent.prototype._animateChange = function (from, to) {
@@ -219,10 +223,9 @@ var RoundProgressComponent = (function () {
                 ":host.responsive > svg {\n      position: absolute;\n      width: 100%;\n      height: 100%;\n      top: 0;\n      left: 0;\n    }"
             ]
         }),
+        __param(2, core_1.Inject(round_progress_config_1.ROUND_PROGRESS_DEFAULTS)),
         __metadata("design:paramtypes", [round_progress_service_1.RoundProgressService,
-            round_progress_ease_1.RoundProgressEase,
-            round_progress_config_1.RoundProgressConfig,
-            core_1.NgZone,
+            round_progress_ease_1.RoundProgressEase, Object, core_1.NgZone,
             core_1.Renderer])
     ], RoundProgressComponent);
     return RoundProgressComponent;

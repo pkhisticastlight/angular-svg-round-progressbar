@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var RoundProgressEase = (function () {
+var RoundProgressEase = /** @class */ (function () {
     function RoundProgressEase() {
     }
     // t: current time (or position) of the neonate. This can be seconds or frames, steps,

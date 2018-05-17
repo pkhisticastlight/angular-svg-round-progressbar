@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var GenerateObservable_1 = require("./GenerateObservable");
-exports.generate = GenerateObservable_1.GenerateObservable.create;
+__export(require("rxjs-compat/observable/generate"));
 //# sourceMappingURL=generate.js.map

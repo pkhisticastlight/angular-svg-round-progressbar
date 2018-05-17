@@ -1,3 +1,6 @@
+import { InjectionToken, Provider } from '@angular/core';
+export declare const ROUND_PROGRESS_DEFAULTS: InjectionToken<RoundProgressDefaults>;
+export declare const ROUND_PROGRESS_DEFAULTS_PROVIDER: Provider;
 export interface RoundProgressDefaults {
     radius?: number;
     animation?: string;
@@ -10,11 +13,4 @@ export interface RoundProgressDefaults {
     clockwise?: boolean;
     semicircle?: boolean;
     rounded?: boolean;
-}
-export declare class RoundProgressConfig {
-    private _options;
-    /** Configures the defaults. */
-    setDefaults(config: RoundProgressDefaults): RoundProgressDefaults;
-    /** Fetches a value from the defaults. */
-    get(key: string): any;
 }

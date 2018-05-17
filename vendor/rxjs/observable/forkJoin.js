@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var ForkJoinObservable_1 = require("./ForkJoinObservable");
-exports.forkJoin = ForkJoinObservable_1.ForkJoinObservable.create;
+__export(require("rxjs-compat/observable/forkJoin"));
 //# sourceMappingURL=forkJoin.js.map

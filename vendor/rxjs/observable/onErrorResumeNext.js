@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var onErrorResumeNext_1 = require("../operators/onErrorResumeNext");
-exports.onErrorResumeNext = onErrorResumeNext_1.onErrorResumeNextStatic;
+__export(require("rxjs-compat/observable/onErrorResumeNext"));
 //# sourceMappingURL=onErrorResumeNext.js.map

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var DEGREE_IN_RADIANS = Math.PI / 180;
-var RoundProgressService = (function () {
+var RoundProgressService = /** @class */ (function () {
     function RoundProgressService(document) {
         this.supportsSvg = !!(document &&
             document.createElementNS &&

@@ -1,5 +1,7 @@
 "use strict";
+function __export(m) {
+    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+}
 Object.defineProperty(exports, "__esModule", { value: true });
-var ArrayObservable_1 = require("./ArrayObservable");
-exports.of = ArrayObservable_1.ArrayObservable.of;
+__export(require("rxjs-compat/observable/of"));
 //# sourceMappingURL=of.js.map

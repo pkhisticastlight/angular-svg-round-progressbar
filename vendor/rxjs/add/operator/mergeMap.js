@@ -1,7 +1,4 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Observable_1 = require("../../Observable");
-var mergeMap_1 = require("../../operator/mergeMap");
-Observable_1.Observable.prototype.mergeMap = mergeMap_1.mergeMap;
-Observable_1.Observable.prototype.flatMap = mergeMap_1.mergeMap;
+require("rxjs-compat/add/operator/mergeMap");
 //# sourceMappingURL=mergeMap.js.map
