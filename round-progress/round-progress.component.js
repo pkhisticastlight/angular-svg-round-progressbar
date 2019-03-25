@@ -36,7 +36,6 @@ var RoundProgressComponent = /** @class */ (function () {
         this.semicircle = this._defaults.semicircle;
         this.rounded = this._defaults.rounded;
         this.onRender = new core_1.EventEmitter();
-        console.log(_defaults);
     }
     /** Animates a change in the current value. */
     RoundProgressComponent.prototype._animateChange = function (from, to) {

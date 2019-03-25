@@ -11,11 +11,11 @@ export declare class RoundProgressComponent implements OnChanges {
     private _lastAnimationId;
     constructor(_service: RoundProgressService, _easing: RoundProgressEase, _defaults: RoundProgressDefaults, _ngZone: NgZone, _renderer: Renderer);
     /** Animates a change in the current value. */
-    private _animateChange(from, to);
+    private _animateChange;
     /** Sets the path dimensions. */
-    private _setPath(value);
+    private _setPath;
     /** Clamps a value between the maximum and 0. */
-    private _clamp(value);
+    private _clamp;
     /** Determines the SVG transforms for the <path> node. */
     getPathTransform(): string;
     /** Resolves a color through the service. */

@@ -26,5 +26,5 @@ export declare class RoundProgressService {
      * @param pathRadius     Radius of the path being described.
      * @param angleInDegrees Degree to be converted.
      */
-    private _polarToCartesian(elementRadius, pathRadius, angleInDegrees);
+    private _polarToCartesian;
 }
